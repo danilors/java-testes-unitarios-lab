@@ -64,24 +64,30 @@ public class Cliente {
         validatePositiveNumber(this.telefone, TELEFONE_INVALIDO);
         validateNotNull(this.dataNascimento, DATA_NASCIMENTO_INVALIDA);
 
+        var errorMessage = "";
+
         if (this.dataNascimento.isAfter(LocalDate.now())) {
-            throw new ClienteException(DATA_NASCIMENTO_FUTURA);
+            errorMessage = DATA_NASCIMENTO_FUTURA;
         }
         if (!ClienteValidator.isMaiorIdade(this.dataNascimento)) {
-            throw new ClienteException(MENOR_DE_IDADE);
+            errorMessage = MENOR_DE_IDADE;
         }
         if (!ClienteValidator.isValidEmail(this.email)) {
-            throw new ClienteException(EMAIL_FORMATO_INVALIDO);
+            errorMessage = EMAIL_FORMATO_INVALIDO;
         }
         if (!ClienteValidator.isValidTelefone(String.valueOf(this.telefone))) {
-            throw new ClienteException(TELEFONE_FORMATO_INVALIDO);
+            errorMessage = TELEFONE_FORMATO_INVALIDO;
         }
         if (!ClienteValidator.isValidRangeNome(this.nome)) {
-            throw new ClienteException(NOME_TAMANHO_INVALIDO);
+            errorMessage = NOME_TAMANHO_INVALIDO;
         }
         if (!ClienteValidator.isValidNomeSemCaracteresEspeciais(this.nome)) {
-            throw new ClienteException(NOME_CARACTERES_INVALIDOS);
+            errorMessage = NOME_CARACTERES_INVALIDOS;
         }
+        if (errorMessage.isEmpty()) {
+            return;
+        }
+        throw new ClienteException(errorMessage);
     }
 
     /**
