@@ -43,28 +43,3 @@ jobs:
       # Executa o PMD para análise de código estático
       - name: Run PMD
         run: mvn pmd:pmd
-
-  create-pull-request:
-    # Executa apenas em eventos de push na branch develop
-    if: github.ref == 'refs/heads/develop'
-    runs-on: ubuntu-latest
-
-    steps:
-      # Faz o checkout do código do repositório
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      # Configura o Git para criar o pull request
-      - name: Configure Git
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-
-      # Cria um pull request da branch develop para a branch main
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v5
-        with:
-          branch: main
-          title: "Merge develop into main"
-          body: "Este pull request foi criado automaticamente para sincronizar as alterações da branch develop com a branch main."
-          labels: "automated-pull-request"
