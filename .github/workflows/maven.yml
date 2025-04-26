@@ -1,13 +1,6 @@
-# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-maven
-
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
 name: Java CI with Maven
 
+# Dispara o workflow em eventos de push e pull_request para os branches especificados
 on:
   push:
     branches: ["develop"]
@@ -19,20 +12,59 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      # Faz o checkout do código do repositório
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Configura o JDK 21 com cache para dependências Maven
       - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
           java-version: "21"
           distribution: "temurin"
           cache: maven
+
+      # Compila o projeto e empacota os artefatos
       - name: Build with Maven
         run: mvn -B clean package -f pom.xml
+
+      # Exibe a árvore de dependências do Maven para depuração
       - name: Maven Dependency Tree
         run: mvn dependency:tree
+
+      # Executa os testes unitários
       - name: Run Tests
         run: mvn test
+
+      # Executa o Checkstyle para verificar o estilo do código
       - name: Run Checkstyle
         run: mvn checkstyle:checkstyle
+
+      # Executa o PMD para análise de código estático
       - name: Run PMD
         run: mvn pmd:pmd
+
+  create-pull-request:
+    # Executa apenas em eventos de push na branch develop
+    if: github.ref == 'refs/heads/develop'
+    runs-on: ubuntu-latest
+
+    steps:
+      # Faz o checkout do código do repositório
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Configura o Git para criar o pull request
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      # Cria um pull request da branch develop para a branch main
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          branch: main
+          title: "Merge develop into main"
+          body: "Este pull request foi criado automaticamente para sincronizar as alterações da branch develop com a branch main."
+          labels: "automated-pull-request"
