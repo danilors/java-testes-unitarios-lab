@@ -1,6 +1,6 @@
 package br.com.ifoodmini.pedidos.api_pedidos.produtos.entity;
 
-import br.com.ifoodmini.pedidos.api_pedidos.entity.Carrinho;
+import br.com.ifoodmini.pedidos.api_pedidos.carrinho.entity.CarrinhoEntity;
 import br.com.ifoodmini.pedidos.api_pedidos.pedidos.entity.PedidoEntity;
 import jakarta.persistence.*;
 import lombok.*;
@@ -32,7 +32,7 @@ public class ProdutoEntity {
     private List<PedidoEntity> pedidos;
 
     @ManyToMany(mappedBy = "produtos")
-    private List<Carrinho> carrinhos;
+    private List<CarrinhoEntity> carrinhoEntities;
 
     // Getters and Setters
 }

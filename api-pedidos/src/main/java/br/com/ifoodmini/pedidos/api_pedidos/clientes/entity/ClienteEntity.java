@@ -1,13 +1,12 @@
 package br.com.ifoodmini.pedidos.api_pedidos.clientes.entity;
 
 import br.com.ifoodmini.pedidos.api_pedidos.enderecos.entity.EnderecoEntity;
-import br.com.ifoodmini.pedidos.api_pedidos.entity.Carrinho;
+import br.com.ifoodmini.pedidos.api_pedidos.carrinho.entity.CarrinhoEntity;
 import br.com.ifoodmini.pedidos.api_pedidos.pedidos.entity.PedidoEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
-
 
 @Getter
 @Setter
@@ -30,8 +29,8 @@ public class ClienteEntity {
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
     private List<PedidoEntity> pedidos;
 
-    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
-    private List<Carrinho> carrinhos;
+    @OneToOne(mappedBy = "cliente", cascade = CascadeType.ALL)
+    private CarrinhoEntity carrinho;
 
     // Getters e Setters
 }
