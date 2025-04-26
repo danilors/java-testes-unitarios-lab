@@ -1,7 +1,7 @@
 package br.com.ifoodmini.pedidos.api_pedidos.produtos.entity;
 
 import br.com.ifoodmini.pedidos.api_pedidos.entity.Carrinho;
-import br.com.ifoodmini.pedidos.api_pedidos.entity.PedidoEntity;
+import br.com.ifoodmini.pedidos.api_pedidos.pedidos.entity.PedidoEntity;
 import jakarta.persistence.*;
 import lombok.*;
 

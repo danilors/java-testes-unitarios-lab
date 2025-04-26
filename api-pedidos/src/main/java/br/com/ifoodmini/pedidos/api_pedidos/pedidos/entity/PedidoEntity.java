@@ -1,4 +1,4 @@
-package br.com.ifoodmini.pedidos.api_pedidos.entity;
+package br.com.ifoodmini.pedidos.api_pedidos.pedidos.entity;
 
 import br.com.ifoodmini.pedidos.api_pedidos.clientes.entity.ClienteEntity;
 import br.com.ifoodmini.pedidos.api_pedidos.produtos.entity.ProdutoEntity;
