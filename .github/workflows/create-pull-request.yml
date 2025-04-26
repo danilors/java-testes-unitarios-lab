@@ -1,0 +1,21 @@
+create-pull-request:
+  if: github.ref == 'refs/heads/develop'
+  runs-on: ubuntu-latest
+  permissions:
+    contents: write
+  steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Configure Git
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v5
+      with:
+        branch: main
+        title: "Merge develop into main"
+        body: "Este pull request foi criado automaticamente para sincronizar as alterações da branch develop com a branch main."
+        labels: "automated-pull-request"
