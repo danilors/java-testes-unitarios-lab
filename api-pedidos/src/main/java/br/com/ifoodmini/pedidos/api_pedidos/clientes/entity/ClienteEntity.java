@@ -1,6 +1,8 @@
-package br.com.ifoodmini.pedidos.api_pedidos.entity;
+package br.com.ifoodmini.pedidos.api_pedidos.clientes.entity;
 
 import br.com.ifoodmini.pedidos.api_pedidos.enderecos.entity.EnderecoEntity;
+import br.com.ifoodmini.pedidos.api_pedidos.entity.Carrinho;
+import br.com.ifoodmini.pedidos.api_pedidos.entity.PedidoEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
