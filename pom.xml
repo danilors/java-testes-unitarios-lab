@@ -14,6 +14,7 @@
     <modules>
         <module>classes-simples</module>
         <module>api-pedidos</module>
+        <module>api-produtos-integration-tests</module>
     </modules>
 
     <properties>
