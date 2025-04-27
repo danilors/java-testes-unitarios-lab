@@ -1,0 +1,94 @@
+_type: export
+__export_format: 4
+__export_date: 2025-04-20T01:38:58.210Z
+__export_source: insomnia.desktop.app:v10.3.1
+resources:
+  - _id: req_bb03197bd8994f7eb98643431a120207
+    parentId: wrk_b2b6d49703ae47abab5a87fd339f0c06
+    modified: 1745112953922
+    created: 1745112671575
+    url: http://localhost:8081/api/produtos
+    name: Criar
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "descricao": "Smartwatch Fit Pro 4",
+          "preco": 1200.50,
+          "categoria": "ELETRONICOS",
+          "quantidadeEstoque": 500,
+          "sku": "ELET-SWATCH-FP4",
+          "marca": "ConnectLife",
+          "imageUrl": "http://example.com/images/smartwatch_fitpro18.png",
+          "status": "ATIVO"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/10.3.1
+    authentication: {}
+    metaSortKey: -1745112671575
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: wrk_b2b6d49703ae47abab5a87fd339f0c06
+    parentId: null
+    modified: 1745112588170
+    created: 1745112588170
+    name: Produtos
+    description: ""
+    scope: collection
+    _type: workspace
+  - _id: req_34f9155204744ce785f6a10e116f2a49
+    parentId: wrk_b2b6d49703ae47abab5a87fd339f0c06
+    modified: 1745112650553
+    created: 1745112619359
+    url: http://localhost:8081/api/produtos
+    name: Listar
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/10.3.1
+    authentication: {}
+    metaSortKey: -1745112619360
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_d73cf81a3f7e46228c182e9c97fd167a07c2402e
+    parentId: wrk_b2b6d49703ae47abab5a87fd339f0c06
+    modified: 1745112588171
+    created: 1745112588171
+    name: Base Environment
+    data: {}
+    dataPropertyOrder: null
+    color: null
+    isPrivate: false
+    metaSortKey: 1745112588171
+    environmentType: kv
+    _type: environment
+  - _id: jar_d73cf81a3f7e46228c182e9c97fd167a07c2402e
+    parentId: wrk_b2b6d49703ae47abab5a87fd339f0c06
+    modified: 1745112588172
+    created: 1745112588172
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar
