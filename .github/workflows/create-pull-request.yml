@@ -34,3 +34,5 @@ jobs:
           body: |
             Este pull request foi criado automaticamente para sincronizar as alterações da branch develop com a branch main.
           labels: "automated-pull-request"
+          commit-message: "Atualizações da branch develop"
+          delete-branch: false
