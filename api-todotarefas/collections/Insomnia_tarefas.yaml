@@ -1,0 +1,168 @@
+_type: export
+__export_format: 4
+__export_date: 2025-04-27T23:40:05.983Z
+__export_source: insomnia.desktop.app:v10.3.1
+resources:
+  - _id: req_c0d302febb954bb485cf57a34a2c51c4
+    parentId: wrk_2e27c9ed753146189c77ab7bfe86d38e
+    modified: 1745797132939
+    created: 1745797114035
+    url: http://localhost:8082/api/tarefas
+    name: Listar
+    description: "List all tasks"
+    method: GET
+    body: { }
+    parameters: [ ]
+    headers:
+      - name: User-Agent
+        value: insomnia/10.3.1
+    authentication: { }
+    metaSortKey: -1745797114035
+    isPrivate: false
+    pathParameters: [ ]
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_2b3d4f5e6a7b8c9d0e1f2g3h4i5j6k7l
+    parentId: wrk_2e27c9ed753146189c77ab7bfe86d38e
+    modified: 1745797132940
+    created: 1745797114036
+    url: http://localhost:8082/api/tarefas
+    name: Criar
+    description: "Create a new task"
+    method: POST
+    body:
+      mimeType: application/json
+      text: |
+        {
+          "titulo": "Nova Tarefa",
+          "descricao": "Descrição da nova tarefa",
+          "concluida": false
+        }
+    parameters: [ ]
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication: { }
+    metaSortKey: -1745797114034
+    isPrivate: false
+    pathParameters: [ ]
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q8r
+    parentId: wrk_2e27c9ed753146189c77ab7bfe86d38e
+    modified: 1745797132941
+    created: 1745797114037
+    url: http://localhost:8082/api/tarefas/{id}
+    name: Buscar por ID
+    description: "Retrieve a task by ID"
+    method: GET
+    body: { }
+    parameters: [ ]
+    headers: [ ]
+    authentication: { }
+    metaSortKey: -1745797114033
+    isPrivate: false
+    pathParameters:
+      - name: id
+        value: 1
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_4d5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s
+    parentId: wrk_2e27c9ed753146189c77ab7bfe86d38e
+    modified: 1745797132942
+    created: 1745797114038
+    url: http://localhost:8082/api/tarefas/{id}
+    name: Atualizar
+    description: "Update a task by ID"
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |
+        {
+          "titulo": "Tarefa Atualizada",
+          "descricao": "Descrição atualizada da tarefa",
+          "concluida": true
+        }
+    parameters: [ ]
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication: { }
+    metaSortKey: -1745797114032
+    isPrivate: false
+    pathParameters:
+      - name: id
+        value: 1
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s0t
+    parentId: wrk_2e27c9ed753146189c77ab7bfe86d38e
+    modified: 1745797132943
+    created: 1745797114039
+    url: http://localhost:8082/api/tarefas/{id}
+    name: Deletar
+    description: "Delete a task by ID"
+    method: DELETE
+    body: { }
+    parameters: [ ]
+    headers: [ ]
+    authentication: { }
+    metaSortKey: -1745797114031
+    isPrivate: false
+    pathParameters:
+      - name: id
+        value: 1
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: wrk_2e27c9ed753146189c77ab7bfe86d38e
+    parentId: null
+    modified: 1745797103949
+    created: 1745797103949
+    name: Tarefas
+    description: ""
+    scope: collection
+    _type: workspace
+  - _id: env_7ef820a2f2e3fa43d58d9aefe315bb119a235795
+    parentId: wrk_2e27c9ed753146189c77ab7bfe86d38e
+    modified: 1745797103951
+    created: 1745797103951
+    name: Base Environment
+    data: { }
+    dataPropertyOrder: null
+    color: null
+    isPrivate: false
+    metaSortKey: 1745797103951
+    environmentType: kv
+    _type: environment
+  - _id: jar_7ef820a2f2e3fa43d58d9aefe315bb119a235795
+    parentId: wrk_2e27c9ed753146189c77ab7bfe86d38e
+    modified: 1745797103952
+    created: 1745797103952
+    name: Default Jar
+    cookies: [ ]
+    _type: cookie_jar
