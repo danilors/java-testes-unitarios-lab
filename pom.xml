@@ -9,12 +9,13 @@
     <packaging>pom</packaging>
 
     <name>Projeto Java Testes Unitários Lab</name>
-    <description>Projeto multi-módulo para testes unitários em Java</description>
+    <description>Projeto multi-módulo para teste de feautures do Java</description>
 
     <modules>
         <module>classes-simples</module>
         <module>api-pedidos</module>
         <module>api-produtos-integration-tests</module>
+        <module>api-todotarefas</module>
     </modules>
 
     <properties>

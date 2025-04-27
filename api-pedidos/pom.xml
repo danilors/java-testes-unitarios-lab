@@ -10,9 +10,9 @@
 	</parent>
 	<groupId>br.com.ifoodmini.pedidos</groupId>
 	<artifactId>api-pedidos</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>api-pedidos</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Projeto simples de pedidos para demonstrar algumas funcionalidades possíveis sobre entrega de comida</description>
 	<url/>
 	<licenses>
 		<license/>

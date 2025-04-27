@@ -5,14 +5,14 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.4.4</version>
+		<version>3.4.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>br.com.produto</groupId>
-	<artifactId>api-produtos-integration-tests</artifactId>
+	<groupId>br.com.todotarefas</groupId>
+	<artifactId>api-todotarefas</artifactId>
 	<version>0.0.1</version>
-	<name>api-produtos-integration-tests</name>
-	<description>Projeto simples  para demonstrar testes integração  em uma aplicacao spring boot API REST</description>			
+	<name>api-todotarefas</name>
+	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -59,7 +59,6 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>
