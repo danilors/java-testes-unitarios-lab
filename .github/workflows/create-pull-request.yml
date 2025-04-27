@@ -28,8 +28,8 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
-          source-branch: develop
-          target-branch: main
+          branch: develop
+          base: main
           title: "Merge develop into main"
           body: |
             Este pull request foi criado automaticamente para sincronizar as alterações da branch develop com a branch main.
