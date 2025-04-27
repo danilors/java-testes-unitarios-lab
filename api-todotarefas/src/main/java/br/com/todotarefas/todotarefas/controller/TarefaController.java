@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/tarefas")
+@RequestMapping("/api/tarefas")
 public class TarefaController {
 
     @Autowired
@@ -35,11 +35,7 @@ public class TarefaController {
 
     @PutMapping("/{id}")
     public ResponseEntity<TarefaEntity> atualizar(@PathVariable Long id, @RequestBody TarefaDTO tarefaDTO) {
-        try {
-            return ResponseEntity.ok(tarefaService.atualizar(id, tarefaDTO));
-        } catch (RuntimeException e) {
-            return ResponseEntity.notFound().build();
-        }
+        return ResponseEntity.ok(tarefaService.atualizar(id, tarefaDTO));
     }
 
     @DeleteMapping("/{id}")
