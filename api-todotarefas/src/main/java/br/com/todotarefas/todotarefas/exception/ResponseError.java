@@ -1,4 +1,4 @@
 package br.com.todotarefas.todotarefas.exception;
 
-public class ResponseError {
+public record ResponseError(String message) {
 }

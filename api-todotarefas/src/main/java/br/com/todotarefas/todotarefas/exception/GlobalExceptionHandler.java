@@ -13,4 +13,22 @@ public class GlobalExceptionHandler {
     public ResponseEntity<String> handleGenericException(Exception ex, WebRequest request) {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An unexpected error occurred.");
     }
+
+    @ExceptionHandler(TarefaNaoEncontradaException.class)
+    public ResponseEntity<ResponseError> handleTarefaNaoEncontradaException(TarefaNaoEncontradaException ex, WebRequest request) {
+        ResponseError responseError = new ResponseError(ex.getMessage());
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(responseError);
+    }
+
+    @ExceptionHandler(TarefaInvalidaException.class)
+    public ResponseEntity<ResponseError> handleTarefaInvalidaException(TarefaInvalidaException ex, WebRequest request) {
+        ResponseError responseError = new ResponseError(ex.getMessage());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseError);
+    }
+
+    @ExceptionHandler(exception = {AtualizaTituloTarefaExistenteException.class, TituloTarefaExistenteException.class})
+    public ResponseEntity<ResponseError> handleTarefasException(TarefasException ex, WebRequest request) {
+        ResponseError responseError = new ResponseError(ex.getMessage());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseError);
+    }
 }
