@@ -2,6 +2,7 @@ package br.com.todotarefas.todotarefas.service;
 
 import br.com.todotarefas.todotarefas.dto.TarefaDTO;
 import br.com.todotarefas.todotarefas.entity.TarefaEntity;
+import br.com.todotarefas.todotarefas.exception.TarefaNaoEncontradaException;
 import br.com.todotarefas.todotarefas.repository.TarefaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,6 +25,7 @@ public class TarefaService {
     }
 
     public TarefaEntity salvar(TarefaDTO tarefaDTO) {
+
         TarefaEntity tarefa = new TarefaEntity();
         tarefa.setTitulo(tarefaDTO.titulo());
         tarefa.setDescricao(tarefaDTO.descricao());
@@ -32,7 +34,8 @@ public class TarefaService {
     }
 
     public TarefaEntity atualizar(Long id, TarefaDTO tarefaDTO) {
-        TarefaEntity tarefa = tarefaRepository.findById(id).orElseThrow(() -> new RuntimeException("Tarefa não encontrada"));
+        TarefaEntity tarefa = tarefaRepository.findById(id).orElseThrow(() -> new TarefaNaoEncontradaException(id));
+
         tarefa.setTitulo(tarefaDTO.titulo());
         tarefa.setDescricao(tarefaDTO.descricao());
         tarefa.setConcluida(tarefaDTO.concluida());
