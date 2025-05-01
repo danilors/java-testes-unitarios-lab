@@ -1,7 +1,6 @@
 package br.com.produto.api_produtos.service.impl;
 
 import br.com.produto.api_produtos.dto.ProdutoDTO;
-import br.com.produto.api_produtos.enums.Categoria;
 import br.com.produto.api_produtos.repository.ProdutoRepository;
 import br.com.produto.api_produtos.service.ProdutoService;
 import org.springframework.stereotype.Service;
