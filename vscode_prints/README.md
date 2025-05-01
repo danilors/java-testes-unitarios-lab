@@ -33,3 +33,11 @@ Abaixo está a lista de classes e cenários de teste executados, com o status de
 Abaixo está a lista de plugins Java utilizados no Visual Studio Code para configurar o ambiente de desenvolvimento:
 
 ![Plugins Java](../vscode_prints/java_plugins.png)
+
+---
+
+## 2. Plugins Java no VS Code (`java plugins`)
+
+Aplicação em execução :)
+
+![Plugins Java](../vscode_prints/application_running.png)
