@@ -68,8 +68,8 @@ public class TarefaIntegrationTest {
         TarefaDTO tarefaDTO = new TarefaDTO("Nova Tarefa", "Descrição da nova tarefa", false);
 
         mockMvc.perform(post("/api/tarefas")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(tarefaDTO)))
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(tarefaDTO)))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.titulo").value("Nova Tarefa"));
     }
@@ -80,8 +80,8 @@ public class TarefaIntegrationTest {
         TarefaDTO tarefaDTO = new TarefaDTO("", "Descrição inválida", false);
 
         mockMvc.perform(post("/api/tarefas")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(tarefaDTO)))
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(tarefaDTO)))
                 .andExpect(status().isBadRequest());
     }
 
@@ -92,8 +92,8 @@ public class TarefaIntegrationTest {
         TarefaDTO tarefaAtualizada = new TarefaDTO("Tarefa Atualizada", "Descrição atualizada", true);
 
         mockMvc.perform(put("/api/tarefas/{id}", tarefa.getId())
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(tarefaAtualizada)))
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(tarefaAtualizada)))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.titulo").value("Tarefa Atualizada"));
     }
@@ -104,8 +104,8 @@ public class TarefaIntegrationTest {
         TarefaDTO tarefaAtualizada = new TarefaDTO("Tarefa Atualizada", "Descrição atualizada", true);
 
         mockMvc.perform(put("/api/tarefas/{id}", 999)
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(tarefaAtualizada)))
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(tarefaAtualizada)))
                 .andExpect(status().isNotFound());
     }
 
@@ -132,8 +132,8 @@ public class TarefaIntegrationTest {
         TarefaDTO tarefaDTO = new TarefaDTO("Tarefa Duplicada", "Outra descrição", false);
 
         mockMvc.perform(post("/api/tarefas")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(tarefaDTO)))
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(tarefaDTO)))
                 .andExpect(status().isBadRequest())
                 .andExpect(jsonPath("$.message").value("Já existe uma tarefa com o título: Tarefa Duplicada"));
     }
@@ -144,8 +144,8 @@ public class TarefaIntegrationTest {
         TarefaDTO tarefaDTO = new TarefaDTO("Tarefa Válida", "", false);
 
         mockMvc.perform(post("/api/tarefas")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(tarefaDTO)))
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(tarefaDTO)))
                 .andExpect(status().isBadRequest())
                 .andExpect(jsonPath("$.message").value("A descrição da tarefa não pode ser nula ou vazia."));
     }
@@ -156,8 +156,8 @@ public class TarefaIntegrationTest {
         TarefaDTO tarefaDTO = new TarefaDTO("Título muito longo para ser aceito", "Descrição válida", false);
 
         mockMvc.perform(post("/api/tarefas")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(tarefaDTO)))
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(tarefaDTO)))
                 .andExpect(status().isBadRequest())
                 .andExpect(jsonPath("$.message").value("O título da tarefa não pode ter mais de 20 caracteres."));
     }
@@ -165,11 +165,12 @@ public class TarefaIntegrationTest {
     @Test
     @DisplayName("Deve retornar 400 ao criar tarefa com descrição muito longa")
     void deveRetornar400AoCriarTarefaComDescricaoMuitoLonga() throws Exception {
-        TarefaDTO tarefaDTO = new TarefaDTO("Título válido", "Descrição muuuuuuuuuuuuito longa para ser aceita pelo sistema", false);
+        TarefaDTO tarefaDTO = new TarefaDTO("Título válido",
+                "Descrição muuuuuuuuuuuuito longa para ser aceita pelo sistema", false);
 
         mockMvc.perform(post("/api/tarefas")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(tarefaDTO)))
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(tarefaDTO)))
                 .andExpect(status().isBadRequest())
                 .andExpect(jsonPath("$.message").value("A descrição da tarefa não pode ter mais de 60 caracteres."));
     }
@@ -186,9 +187,10 @@ public class TarefaIntegrationTest {
 
         // Assert: Expect a 400 Bad Request with the appropriate error message
         mockMvc.perform(put("/api/tarefas/{id}", tarefa.getId())
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(tarefaAtualizada)))
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(tarefaAtualizada)))
                 .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.message").value("A Tarefa nao pode ser atualizada. Já existe uma tarefa com o título: Tarefa 1"));
+                .andExpect(jsonPath("$.message")
+                        .value("A Tarefa nao pode ser atualizada. Já existe uma tarefa com o título: Tarefa 1"));
     }
 }
