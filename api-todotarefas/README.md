@@ -20,7 +20,7 @@ Este projeto é uma API REST desenvolvida com **Spring Boot** para gerenciar tar
    mvn clean install
    ```
 
-### Como Executar a Aplicação
+## Como Executar a Aplicação
 
 A aplicação estará disponível na seguinte URL:
 
@@ -28,9 +28,9 @@ A aplicação estará disponível na seguinte URL:
 mvn spring-boot:run
 ```
 
-#### A aplicação estará disponível na seguinte URL:
+## A aplicação estará disponível na seguinte URL:
 
-http://localhost:8080/api/tarefas
+http://localhost:8082/api/tarefas
 
 Testando os Endpoints
 Você pode testar os endpoints utilizando ferramentas como Postman ou Insomnia. Abaixo estão alguns exemplos de endpoints disponíveis:
@@ -42,6 +42,6 @@ Você pode testar os endpoints utilizando ferramentas como Postman ou Insomnia. 
 
 Certifique-se de ajustar o corpo das requisições conforme necessário para cada endpoint.
 
-#### Arquivo de Collection
+## Arquivo de Collection
 
 No diretório **collections**, você encontrará um arquivo .**yml** contendo uma coleção de requisições prontas para serem importadas no Postman ou Insomnia. Esse arquivo facilita o teste dos endpoints da API, permitindo que você valide rapidamente as funcionalidades implementadas. ```
