@@ -15,3 +15,6 @@ Este repositório reúne múltiplos projetos com o objetivo de explorar e experi
 
 - **api-integrations-test**  
   Uma API REST desenvolvida com Spring Boot e banco de dados H2. Este projeto tem como foco a realização de testes integrados, cobrindo todo o fluxo de cada endpoint. Os testes validam tanto o código de status HTTP quanto os valores do corpo da resposta em cada requisição.
+
+- **api-bdd-tests**  
+  Um projeto que demonstra a utilização do **Cucumber** para testes BDD (Behavior-Driven Development) em um ambiente Spring Boot. Ele integra cenários descritos em linguagem natural com testes automatizados, utilizando ferramentas como JUnit e Mockito.
